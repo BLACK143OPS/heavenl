@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>categories</title>
+    <style>
+         body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            background-color: black;
+            gap: 30px;
+        }
+
+        .bg-video {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        header {
+            color: #e4e4e4;
+            padding: 1rem;
+            text-align: center;
+            background: #000;
+        }
+
+        header h1 {
+            color: white;
+            text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 40px cyan, 0 0 80px cyan;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-shadow: 10px cyan, 20px cyan, 40px cyan, 80px cyan;
+            background-color: brown;
+            border: 10px solid #000;
+            border-radius: 20px;
+            margin-inline: 10px;
+            transition: transform 0.3s;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .gallery-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 15s infinite linear;
+            
+        }
+
+        .gallery-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 10px solid #000;
+        }
+
+        .gallery-image:nth-child(1) {
+            transform: rotateY(0deg);
+        }
+
+        .gallery-image:nth-child(2) {
+            transform: rotateY(90deg);
+        }
+
+        .gallery-image:nth-child(3) {
+            transform: rotateY(180deg);
+        }
+
+        .gallery-image:nth-child(4) {
+            transform: rotateY(270deg);
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 50px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            transition: transform 0.3s;
+            
+            
+            
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            
+           
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+            font-size: 20px;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 40px cyan, 0 0 80px cyan;
+        }
+
+        .thumbnail:hover .description {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay loop class="bg-video">
+        <source src="AQMRhHsiBn3dSjWuOkBuOQdc0Wo5dZQOZUQ31zqEdcloVKrfGurM-N2m1OwfnfC1h8MHAaYYqZiYZr39AkRQZhfz (1).mp4"
+            type="video/mp4">
+    </video>
+
+    <header>
+        <h1>Heavenly Games Store</h1>
+    </header>
+
+    <nav>
+        <a href="fixxing.html">Home</a>
+        <a href="fixxing.html">Shop Now!</a>
+        <a href="jh.html">Log-in</a>
+        <a href="about.html">About Us</a>
+        <a href="lab2.html">Product</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <center>
+        <div class="gallery">
+            <div class="gallery-container">
+                <div class="gallery-image"><img src="breath-of-the-wild-box-art.jpg" alt="image 1"></div>
+                <div class="gallery-image"><img src="Call-of-Duty-Modern-Warfare-II-7645-1653423060.jpg" alt="image 2">
+                </div>
+                <div class="gallery-image"><img src="OIP (2).jpeg" alt="image 3"></div>
+                <div class="gallery-image"><img src="OIP (4).jpeg" alt="image 4"></div>
+            </div>
+        </div>
+    </center>
+
+    <center>
+        <div class="thumbnail-gallery">
+            <div class="thumbnail">
+                <a href="price.html">
+                    <img src="FICKGFAJDOUSMMU.webp" alt="Minecraft: Java & Bedrock Edition">
+                </a>
+                <div class="description">Minecraft: Java & Bedrock Edition</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price2.html"><img src="amoguslandscape_2560x1440-3fac17e8bb45d81ec9b2c24655758075.jpeg"
+                        alt="Among Us">
+                </a>
+                <div class="description">Among Us</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price3.html"><img src="cod-black-ops-6-vault-edition.webp"
+                        alt="Call of Duty: Black Ops 6 - Vault Edition">
+                </a>
+                <div class="description">Call of Duty: Black Ops 6 - Vault Edition</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price4.html"><img src="06f9b422-9489-42bc-bea0-00fdcda498b8.jpg" alt="Valheim">
+                </a>
+                <div class="description">Valheim</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price5.html"><img src="forza-horizon-5-button-fin-1629830068379.jpg"
+                        alt="Forza Horizon 5 Standard Edition">
+                </a>
+                <div class="description">Forza Horizon 5 Standard Edition</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price6.html"><img src="305785-The_Texas_Chain_Saw_Massacre-movies-horror.jpg"
+                        alt="The Texas Chain Saw Massacre - PC Edition">
+                </a>
+                <div class="description">The Texas Chain Saw Massacre - PC Edition</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price7.html"><img src="OIP (5).jpeg" alt="Back 4 Blood"></a>
+                <div class="description">Back 4 Blood</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price8.html"><img src="3019631-box_sv.png" alt="Stardew Valley"></a>
+                <div class="description">Stardew Valley</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price9.html"><img src="OIP (6).jpeg" alt="Minecraft Dungeons for Windows"></a>
+                <div class="description">Minecraft Dungeons for Windows</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price10.html"><img src="ForzaHorizon5PremiumAddOnsBundle_cover-460x215.jpg"
+                        alt="Forza Horizon 5 Premium Add-Ons Bundle">
+                </a>
+                <div class="description">Forza Horizon 5 Premium Add-Ons Bundle</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price11.html"><img src="851589.webp" alt="Starfield Premium Edition Upgrade"></a>
+                <div class="description">Starfield Premium Edition Upgrade</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price12.html"><img src="OIP (7).jpeg" alt="Subnautica"></a>
+                <div class="description">Subnautica</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price13.html"><img src="OIF.jpeg" alt="Metaphor: ReFantazio"></a>
+                <div class="description">Metaphor: ReFantazio</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price14.html"><img src="1_lCx_fRLhwKcT9r2MctevuQ.jpg" alt="The Witcher 3: Wild Hunt"></a>
+                <div class="description">The Witcher 3: Wild Hunt</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price15.html"><img
+                        src="EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7.jpeg"
+                        alt="Cyberpunk 2077"></a>
+                <div class="description">Cyberpunk 2077</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price16.html"><img src="OIP (8).jpeg" alt="Red Dead Redemption 2"></a>
+                <div class="description">Red Dead Redemption 2</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price17.html"><img src="horizon-zero-dawn-complete-edition-for-pc-1920x1080-060f83d55eb2.jpg"
+                        alt="Horizon Zero Dawn"></a>
+                <div class="description">Horizon Zero Dawn</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price18.html"><img src="i2ICFMr0Ius6qtYYD9GNrY68.webp" alt="Assassin's Creed Valhalla"></a>
+                <div class="description">Assassin's Creed Valhalla</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price19.html"><img src="OIP (2).jpeg" alt="FIFA 23"></a>
+                <div class="description">FIFA 23</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price20.html"><img src="download-NBA-2K23-hadoan-tv.jpg" alt="NBA 2K23"></a>
+                <div class="description">NBA 2K23</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price21.html"><img src="battlefield-2042-1.jpg" alt="Battlefield 2042"></a>
+                <div class="description">Battlefield 2042</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price22.html"><img src="share.png" alt="Resident Evil Village"></a>
+                <div class="description">Resident Evil Village</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price23.html"><img src="ghost-of-tsushima.jpg" alt="Ghost of Tsushima"></a>
+                <div class="description">Ghost of Tsushima</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price24.html"><img src="OIP (9).jpeg" alt="Control Ultimate Edition"></a>
+                <div class="description">Control Ultimate Edition</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price25.html"><img src="death-stranding-1.jpg" alt="Death Stranding"></a>
+                <div class="description">Death Stranding</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price26.html"><img src="sekiro---button-1536103897438.jpg" alt="Sekiro: Shadows Die Twice"></a>
+                <div class="description">Sekiro: Shadows Die Twice</div>
+            </div>
+            
+            <div class="thumbnail">
+                <a href="price27.html"><img src="theouterworlds-keyart_be4r.1920.webp" alt="The Outer Worlds"></a>
+                <div class="description">The Outer Worlds</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price28.html"><img src="OIP (10).jpeg" alt="Control"></a>
+                <div class="description">Control</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price29.html"><img src="Monster-Hunter-World.jpg" alt="Monster Hunter: World"></a>
+                <div class="description">Monster Hunter: World</div>
+            </div>
+            <div class="thumbnail">
+                <a href="price30.html"><img src="hades_3277133b.jpg" alt="Hades"></a>
+                <div class="description">Hades</div>
+            </div>
+
+
+        </div>
+    </center>
+    <nav>
+        <a href="fixxing.html"> Back to Home</a>
+    </nav>
+</body>
+
+</html>

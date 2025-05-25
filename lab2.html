@@ -1,0 +1,125 @@
+<?php
+$host = 'localhost';
+$dbname = 'db_gamer';
+$username = 'root';
+$password = '';
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->query("SELECT * FROM gamerrob ORDER BY created_at DESC");
+    $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("DB error: " . $e->getMessage());
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heavenly Games Store - Game Gallery</title>
+    <style>
+        body {
+            background: url("adce9e5f66922faf24a16da02da74167.gif") center/cover fixed no-repeat;
+            backdrop-filter: blur(30px);
+            color: white;
+            font-family: 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 40px;
+            text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .game {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .game img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .game-details {
+            flex-grow: 1;
+        }
+
+        .game-details h3 {
+            margin: 0 0 5px;
+        }
+
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        footer img {
+            width: 50px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="original.png" alt="Logo" width="80">
+    <h1>Heavenly Games Store</h1>
+</header>
+
+<div class="container">
+    <h2>Game Gallery</h2>
+    <?php if ($games): ?>
+        <?php foreach ($games as $game): ?>
+            <div class="game">
+                <img src="uploads/<?= htmlspecialchars($game['image']) ?>" alt="<?= htmlspecialchars($game['name']) ?>">
+                <div class="game-details">
+                    <h3><?= htmlspecialchars($game['name']) ?></h3>
+                    <p><?= htmlspecialchars($game['description']) ?></p>
+                    <strong>$<?= number_format($game['price'], 2) ?></strong>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No games uploaded yet.</p>
+    <?php endif; ?>
+</div>
+
+<footer>
+    <img src="original.png" alt="Logo">
+    <p>© 2024 Heavenly Games Store | <a href="contact.html">Contact Us</a></p>
+</footer>
+
+</body>
+</html>

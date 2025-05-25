@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Heavenly Games Store</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Orbitron', 'Trebuchet MS', sans-serif;
+      background: #000814;
+      color: #00ffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: radial-gradient(circle at center, #001f3f 0%, #000814 100%);
+    }
+    form {
+      background: rgba(0, 255, 255, 0.1);
+      border: 2px solid #00ffff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 0 15px #00ffffaa;
+      transition: box-shadow 0.3s ease-in-out;
+      backdrop-filter: blur(10px);
+    }
+    form:hover {
+      box-shadow: 0 0 30px #00ffffff;
+    }
+    h2 {
+      margin-bottom: 25px;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #00ffff;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 2px solid #00ffff;
+      background: transparent;
+      color: #00ffff;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+      cursor: pointer;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #00cccc;
+      box-shadow: 0 0 8px #00cccc;
+    }
+    button {
+      width: 100%;
+      background: #00ffff;
+      border: none;
+      padding: 15px 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffffaa;
+      transition: background 0.3s ease, transform 0.2s ease;
+      letter-spacing: 1.5px;
+      user-select: none;
+    }
+    button:hover {
+      background: #00cccc;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ccccff;
+    }
+    p {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #00ffffaa;
+    }
+    a {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+    @media (max-width: 400px) {
+      form {
+        width: 90%;
+        padding: 30px 20px;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      input[type="text"],
+      input[type="password"],
+      button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form action="login.php" method="POST" autocomplete="off" novalidate>
+    <h2>Heavenly Login</h2>
+    <input type="text" name="username" placeholder="Username" required autofocus />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Enter Store</button>
+    <p>Don't have an account? <a href="index.html">Register here</a></p>
+  </form>
+</body>
+</html>
